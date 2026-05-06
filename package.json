@@ -1,0 +1,23 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "learning node , expres , mongosb",
+  "homepage": "https://github.com/Gante1802/js-videocurse#readme",
+  "bugs": {
+    "url": "https://github.com/Gante1802/js-videocurse/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gante1802/js-videocurse.git"
+  },
+  "license": "ISC",
+  "author": "Diego",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.22.1"
+  }
+}
