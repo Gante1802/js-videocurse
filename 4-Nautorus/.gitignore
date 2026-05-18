@@ -1,2 +1,4 @@
-{"dev-data/", "node_modules/", "package-lock.json", "package.json"
-}
+"dev-data/"
+"node_modules/"
+"package-lock.json"
+"public/"
