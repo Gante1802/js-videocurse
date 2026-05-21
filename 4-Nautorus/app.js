@@ -1,11 +1,10 @@
-const fs = require('fs');
 const express = require('express');
-const morgnan = require('morgan');
+const morgan = require('morgan');
+
+const tourRouter = require('./routes/tourRoute');
+const userRouter = require('./routes/userRoute');
 
 const app = express();
-const tourRoute = require('./routes/tourRoute');
-const userrRoute = require('./routes/userRoute');
-
 app.use(morgan('dev'));
 app.use(express.json());
 
@@ -19,29 +18,18 @@ app.use((req, res, next) => {
   next();
 });
 
-const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`),
-);
-
 // app.get('/api/v1/tours', getAllTours);
 // app.post('/api/v1/tours', createTour);
 // app.get('/api/v1/tours/:id', getTour);
 // app.patch('/api/v1/tours/:id', updateTour);
 // app.delete('/api/v1/tours/:id', deleteTour);
 
-//Routers
+//3) Routes
+
 app.use('/api/v1/tours', tourRouter);
-app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
 
-const userRouter = express.Router();
-
-app.route('/api/v1/users').get(getAllUsers).post(createUser);
-
-app
-  .route('/api/v1/users/:id')
-  .get(getUser)
-  .patch(updateUser)
-  .delete(deleteUser);
+//4) Start Server
 const port = 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}.....`);
