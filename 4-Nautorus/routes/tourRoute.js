@@ -4,10 +4,17 @@ const tourController = require('../controllers/tourController.js');
 const router = express.Router();
 router.param('id', tourController.checkID);
 
+//
+//Create a CheckBody Middleware
+//Check if the body contains the name and price property
+//If not, send back 400 (bad request)
+//Add it to the post handler stack
+
+//
 router
   .route('/')
   .get(tourController.getAllTours)
-  .post(tourController.createTour);
+  .post(tourController.checkBody, tourController.createTour);
 router
   .route('/:id')
   .get(tourController.getTour)
