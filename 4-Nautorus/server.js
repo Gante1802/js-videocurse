@@ -1,5 +1,7 @@
+const dotenv = require('dotenv');
 const app = require('./app');
-t;
+dotenv.config({ path: './confing.env' });
+console.log(process.env);
 
 const port = 3000;
 app.listen(port, () => {
