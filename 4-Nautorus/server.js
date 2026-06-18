@@ -23,6 +23,7 @@ const tourSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'A tour must have a name'],
+    unique: true,
   },
   rating: {
     type: Number,
@@ -36,9 +37,9 @@ const tourSchema = new mongoose.Schema({
 
 const TOUR = mongoose.model('Tour', tourSchema);
 const testTour = new TOUR({
-  name: 'The Forest Hiker',
-  rating: 4.7,
-  price: 497,
+  name: 'Camper Van',
+  rating: 2.5,
+  price: 229,
 });
 
 testTour
@@ -47,7 +48,7 @@ testTour
     console.log(doc);
   })
   .catch((err) => {
-    console('Error');
+    console.log('Error', err);
   });
 
 const port = process.env.PORT || 3000;
